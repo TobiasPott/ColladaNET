@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.3.0</Version>
+    <Authors>Tobias Pott</Authors>
+    <Copyright>Tobias Pott</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/TobiasPott/ColladaNET/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TobiasPott/ColladaNET/</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>collada; netstandard; netstandard2.0; dae;</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ColladaNET_Unity\**" />
+    <Compile Remove="Unity\**" />
+    <EmbeddedResource Remove="ColladaNET_Unity\**" />
+    <EmbeddedResource Remove="Unity\**" />
+    <None Remove="ColladaNET_Unity\**" />
+    <None Remove="Unity\**" />
+    <None Include="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Copy of collada_schema_1_4_1_ms.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>
