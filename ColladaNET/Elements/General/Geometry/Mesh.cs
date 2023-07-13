@@ -10,6 +10,10 @@ namespace ColladaNET.Elements
     [XmlRoot(Namespace = Collada.XMLNAMESPACE, IsNullable = false)]
     public partial class Mesh : GeometryBase
     {
+        [XmlElement()]
+        public Vertices vertices
+        { get; set; }
+
         [XmlElement("lines", typeof(Lines))]
         [XmlElement("linestrips", typeof(LineStrips))]
         [XmlElement("polygons", typeof(Polygons))]
@@ -20,11 +24,7 @@ namespace ColladaNET.Elements
         public object[] primitives
         { get; set; }
 
-        [XmlElement()]
-        public Vertices vertices
-        { get; set; }
-
-
+        
 
         public T GetPrimitive<T>()
         {
