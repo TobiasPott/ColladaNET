@@ -20,7 +20,7 @@ namespace ColladaNET
         [XmlElement("scale", typeof(Scale))]
         [XmlElement("skew", typeof(Skew))]
         [XmlElement("translate", typeof(Translate))]
-        [XmlChoiceIdentifierAttribute("itemsElementName")]
+        //[XmlChoiceIdentifierAttribute("itemsElementName")]
         public object[] transformation
         { get; set; }
 
@@ -70,7 +70,12 @@ namespace ColladaNET
 
         // constructors
         public Node()
-        { this.type = NodeType.NODE; }
+        {
+            this.type = NodeType.NODE;
+            this.transformation = new object[0];
+            this.itemsElementName = new Node_ItemsElementName[0];
+            this.layer = new string[0];
+        }
 
         public Node(string id, string name, string sid)
             : this()
@@ -186,14 +191,14 @@ namespace ColladaNET
 
 
         // add specific node child elements e.g. instance_geometry
-        public void AddInstanceGeometry(string geoUrlName, string[] materialNames = null)
+        public void AddInstanceGeometry(string geoUrlName, string[]? materialNames = null)
         {
             InstanceGeometry instance = new InstanceGeometry(geoUrlName);
             this.instance_geometry.Add(instance);
             if (materialNames != null && materialNames.Length > 0)
                 instance.bind_material = new BindMaterial(materialNames);
         }
-        public void AddInstanceController(string ctrlUrlName, string[] materialNames = null)
+        public void AddInstanceController(string ctrlUrlName, string[]? materialNames = null)
         {
             InstanceController instance = new InstanceController(ctrlUrlName);
             this.instance_controller.Add(instance);
